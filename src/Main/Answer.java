@@ -4,14 +4,15 @@ import java.util.ArrayList;
 
 public class Answer {
     public static void main(String[] args) {
-        ArrayList<String> arr = new ArrayList<String>();
-        arr.add("2");
-        arr.add("8");
-        arr.add("*");
-        System.out.println(computeRPN(arr));
+        System.out.println(computeRPN("2 8 *" ));
     }
 
-    public static int computeRPN(ArrayList<String> arr){
+    public static int computeRPN(String input){
+        ArrayList<String> arr = new ArrayList<String>();
+        String[] inputArr = input.split(" ");
+        for(int i = 0; i < inputArr.length; i++){
+            arr.add(inputArr[i]);
+        }
         int result = 0;
         ArrayList<Integer> stack = new ArrayList<Integer>();
         stack.add(Integer.parseInt(arr.get(0)));
